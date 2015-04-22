@@ -37,3 +37,16 @@ describe 'MakeRandom component', ->
       sock_min.send min
       sock_max.send max
       sock_count.send count
+    describe 'positive string min/max/count', ->
+      it 'values should be w/in bounds', ->
+        # must pass this test to work in noflo-ui
+        count = "10"
+        min = '1'
+        max = '100'
+        out.once "data", (data) ->
+          for v in data
+            chai.expect(v).to.be.at.most(max)
+            chai.expect(v).to.be.at.least(min)
+        sock_min.send min
+        sock_max.send max
+        sock_count.send count
