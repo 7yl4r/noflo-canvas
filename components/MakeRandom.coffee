@@ -27,15 +27,15 @@ class MakeRandom extends noflo.Component
         datatype: 'array'
 
     @inPorts.min.on 'data', (data) =>
-      @min = data
+      @min = parseFloat(data)
       @compute()
 
     @inPorts.max.on 'data', (data) =>
-      @max = data
+      @max = parseFloat(data)
       @compute()
 
     @inPorts.count.on 'data', (data) =>
-      @count = data
+      @count = parseInt(data)
       @compute()
 
   compute: ->

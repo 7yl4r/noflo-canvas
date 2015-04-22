@@ -37,6 +37,7 @@ describe 'MakeRandom component', ->
       sock_min.send min
       sock_max.send max
       sock_count.send count
+        
     describe 'positive string min/max/count', ->
       it 'values should be w/in bounds', ->
         # must pass this test to work in noflo-ui
